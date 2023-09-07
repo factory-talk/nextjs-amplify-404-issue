@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "esbenp.prettier-vscode",
+        "jebbs.plantuml",
+        "aaron-bond.better-comments",
+        "ryanluker.vscode-coverage-gutters",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint"
+    ]
+}

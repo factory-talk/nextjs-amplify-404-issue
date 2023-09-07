@@ -1,0 +1,12 @@
+node_modules
+__generated__
+storybook-static
+.next
+.serverless
+.serverless_nextjs
+.env.*
+.env
+.prettierignore
+yarn.lock
+.yarn/
+.git/

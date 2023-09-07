@@ -1,0 +1,269 @@
+@import "variables";
+@import "breakpoints";
+
+html {
+    font-family: var(--lang-font);
+    overflow: auto;
+}
+
+body {
+    padding-right: 0 !important;
+    overflow: hidden;
+
+    header {
+        padding-right: 0 !important;
+    }
+}
+
+a {
+    transition: all ease-in-out 0.3s;
+}
+
+hr {
+    border-top: 0 solid var(--color-divider);
+}
+
+table {
+    border-collapse: collapse;
+
+    input {
+        font-family: Nunito, sans-serif;
+        border: 1px solid var(--color-grey-400);
+        font-size: 16px;
+        padding: 2px 5px;
+    }
+}
+
+tbody {
+    border-bottom: 1px solid var(--color-grey-400);
+
+    td {
+        border-bottom: 1px solid var(--color-grey-400);
+        padding: 10px 16px;
+
+        span {
+            cursor: default;
+        }
+    }
+}
+
+th {
+    border-bottom: 1px solid var(--color-grey-400);
+    padding: 10px 16px;
+    font-size: 14px;
+    line-height: 1rem;
+    position: relative;
+    text-align: left;
+}
+
+.resizer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: rgba(0 0 0 / 50%);
+    cursor: col-resize;
+    user-select: none;
+    touch-action: none;
+    opacity: 0;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.gray-gradient {
+    background: rgb(217 217 217);
+    background: linear-gradient(
+        180deg,
+        rgba(217 217 217 / 100%) 0%,
+        rgba(255 255 255 / 100%) 10%,
+        rgba(255 255 255 / 100%) 100%
+    );
+}
+
+textarea {
+    width: 100%;
+    font-size: 16px;
+    font-family: inherit;
+    padding: 8px 12px;
+    border-color: #dcdcdc;
+    border-radius: 6px;
+
+    &::placeholder {
+        color: rgba(34 34 34/ 100%);
+        opacity: 0.42;
+    }
+
+    &:focus {
+        border-color: var(--color-primary);
+        outline: 1px solid var(--color-primary);
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-box-shadow: 0 0 0 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.ldsEllipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.firstDot,
+.secondDot,
+.thirdDot,
+.fourthDot {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #2e2e2e;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.firstDot {
+    left: 8px;
+    animation: ldsEllipsis1 0.6s infinite;
+}
+
+.secondDot {
+    left: 8px;
+    animation: ldsEllipsis2 0.6s infinite;
+}
+
+.thirdDot {
+    left: 32px;
+    animation: ldsEllipsis2 0.6s infinite;
+}
+
+.fourthDot {
+    left: 56px;
+    animation: ldsEllipsis3 0.6s infinite;
+}
+
+@keyframes ldsEllipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes ldsEllipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes ldsEllipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+        box-shadow: var(--box-shadow);
+    }
+
+    100% {
+        transform: scale(var(--scale));
+        box-shadow: var(--box-shadow-picked-up);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.highlight-box {
+    .tree-item {
+        animation: pulse 1s ease-in-out 0.1s alternate running;
+        animation-iteration-count: 5;
+        animation-fill-mode: backwards;
+    }
+}
+
+.dndkit-custom {
+    position: relative;
+    border: 1px solid var(--color-divider);
+    overflow: auto;
+    width: 100%;
+    border-radius: 8px;
+    margin: 0;
+    height: calc(100vh - 74px);
+    padding: 0;
+
+    &.form-focused {
+        .tree-item {
+            opacity: 0.5;
+        }
+    }
+
+    &::before {
+        content: "\00a0";
+        width: 1px;
+        height: calc(100% - 24px);
+        background-color: #2389ff;
+        position: absolute;
+        left: 20px;
+        top: 24px;
+        z-index: -1;
+    }
+}
+
+.apexcharts-tooltip-text {
+    color: #fff;
+}
+
+.area-chart {
+    .apexcharts-tooltip-text {
+        color: #000;
+    }
+}
+
+.SnackbarContent-root {
+    font-size: 16px;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 5px 2px #a3000199;
+    }
+
+    100% {
+        box-shadow: 0 0 5px 2px #a3000028;
+    }
+}
